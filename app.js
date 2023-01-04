@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('body-parser').urlencoded({ extended: true }))
 app.get("/", urlencodedParser,(req, res) => {
     const clientip = req.ip
-    console.log(clientip.splice(7))
+    console.log(clientip.slice(7))
     res.render("portal")
 })
 
