@@ -1,21 +1,38 @@
 <!DOCTYPE html>
+
 <html lang="en">
-    <head>
-       
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/styles.css">
-        <title>GUDA</title>
-    </head>
-    <body>
-        <div class="container w-70 d-flex flex-column">
-            <img src="/assets/main.jpg" alt="image" class="portal-img mb-3">
-            <p class="text-center text-success status">IP:0.0.0.0 | MAC: 00:00:00:00:00:00</p>
-            <p class="text-center">Status: <span class="badge text-wrap bg-danger">Disconnected</span></p>
-            <p class="text-center text-dark-emphasis rtime">REMAINING TIME</p>
-            <p class="text-center text-success fs-4 fw-bold">23d:6hr:5min:32sec</p>
-            <button type="button" class="btn btn-primary mx-auto btn-lg mb-2 insert px-5 fs-5">INSERT COINS</button>
-            <button type="button" class="btn btn-success mx-auto btn-lg px-5">VIEW RATES</button>
-          </div>
-          
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
+    <title>GUDA</title>
+  
+    <link rel="stylesheet" href="/css/styles.css">
+ 
+  </head>
+  <body>
+    <div class="main">
+      <div class="logo">
+        <img src="/assets/main.jpg" alt="" style="width:100%">
+      </div>
+      <div class="status"><span>status: <span id="stat" class="blinking1">Disconnected</span></span></div>
+      <br><br>
+      <div id="box1">
+        <div class="groupBTN">
+          <button id="insrtBTN">INSERT COIN</button>
+          <button id="conctBTN">VIEW RATES</button>
+          <label>
+            <input id="voucherInput" name="username" type="text" placeholder="Voucher here..." />
+          </label>
+          <button id="submitBTN">SUBMIT</button>
+        </div>
+      </div>
+    
+    </div>
+    <footer>
+        Copyright 2023 GUDA
+      </footer>
+      
+  </body>
 </html>

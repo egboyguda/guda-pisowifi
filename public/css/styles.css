@@ -1,54 +1,254 @@
-.container {
-    width: 70%; /* Set the width of the div element */
- 
-    
-    margin-top: 3%;
+body,
+div,
+html,
+img,
+input,
+label,
+span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: sans-serif, Arial;
+  background-color: #f0f2f5;
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.main {
+  max-width: 420px;
+  display: block;
+  margin: 0 auto 1px auto;
+}
+.logo {
+  max-width: 420px;
+  display: block;
+  padding-top: 30px;
+  margin: 0 auto 1px auto;
+}
+.status {
+  text-align: center;
+  color: #bebebe;
+}
+.blinking1 {
+  animation: blinkingText1 1.2s infinite;
+}
+@keyframes blinkingText1 {
+  0% {
+    color: red;
   }
-  
-  .portal-img{
-    width: 70%;
-    margin: auto;
+  49% {
+    color: red;
   }
- 
-  @media (max-width: 575.98px) {
-    .container {
-      width: 100%;
-      margin-top: 10%;
-    }
-    .portal-img{
-      width: 100%;
-      height: 30%;
-      
-    }
+  60% {
+    color: transparent;
   }
-  .insert {
-    
-    transition: box-shadow 0.3s ease-in-out;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-    animation: glowing 1s ease-in-out infinite;
+  99% {
+    color: transparent;
   }
-  
-  @keyframes glowing {
-    from {
-      box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.7);
-    }
-    to {
-      box-shadow: 0 0 20px 0 rgba(255, 0, 0, 0);
-    }
+  100% {
+    color: red;
   }
-  
-  .insert:hover {
-    box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.7);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table td {
+  color: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 10px 4px 10px 0;
+}
+table td {
+  color: #a62191;
+}
+.groupBTN {
+  padding: 0 40px 0 40px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+#insrtBTN {
+  background-color:#FFB100;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
+  margin-bottom: 13px;
+  width: 100%;
+  height: 44px;
+  border-radius: 4px;
+}
+#conctBTN {
+  background-color: #4aa02c;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 44px;
+  border-radius: 4px;
+}
+#buttonDone {
+  background-color: #1877f2;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 44px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+#submitBTN {
+  float: right;
+  width: 29.7%;
+  height: 44px;
+  border: none;
+  color: #fff;
+  background-color: #1877f2;
+  text-align: center;
+  outline: 0;
+  border-radius: 2px;
+  text-shadow: 0 1px 3px #000;
+  cursor: pointer;
+}
+#voucherInput {
+  float: left;
+  border-radius: 2px;
+  width: 70%;
+  height: 44px;
+  border: none;
+  color: #1877f2;
+  border: 2px solid #1877f2;
+  text-align: center;
+  outline: 0;
+}
+
+
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.progress {
+  display: -ms-flexbox;
+  display: flex;
+  height: 1rem;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0.75rem;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+.progress-bar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #007bff;
+  transition: width 0.6s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar {
+    transition: none;
+  }
+}
+.progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+.progress-bar-animated {
+  -webkit-animation: progress-bar-stripes 1s linear infinite;
+  animation: progress-bar-stripes 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-animated {
+    -webkit-animation: none;
     animation: none;
   }
-/* Dark gray */
-body {
-  background-color: #333333;
-  color: white; /* Set text color to white */
 }
-.rtime{
-  margin: 0;
+.spinner {
+  position: fixed;
+  z-index: 9999;
+  opacity: 83%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
-.status{
+.spinner > img {
+  width: 100px;
+}
+.spinner.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+  display: none;
+}
+ul {
+  list-style-type: none;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5dade2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+li {
+  float: right;
+  padding: 9px 16px 5px;
+}
+p {
+  float: left;
+  text-align: center;
+  margin-left: 13px;
+  color: #f0f2f5;
+  font-weight: 700;
+  text-shadow: 0 1px 2px #000;
+}
+
+footer {
+  position: fixed; /* Make the footer a fixed element */
+  bottom: 0; /* Stick the footer to the bottom of the page */
+  left: 0; /* Stick the footer to the left of the page */
+  right: 0; /* Stick the footer to the right of the page */
+  height: 60px; /* Set the height of the footer */
+  color: black;
 }
