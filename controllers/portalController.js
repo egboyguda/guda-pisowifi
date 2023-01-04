@@ -6,7 +6,7 @@ exports.authClient=async function(req, res)  {
     const clientip = req.ip.slice(7)
     const val=await allowClient.allowClient(clientip)
     if(val!==null){
-        res.send("Allowed")
+        return res.send("Allowed")
     }
     res.send("portal")
 }
