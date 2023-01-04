@@ -20,7 +20,7 @@
       <br><br>
       <div id="box1">
         <div class="groupBTN">
-          <button id="insrtBTN">INSERT COIN</button>
+          <button id="insrtBTN" onclick="callUser();">INSERT COIN</button>
           <button id="conctBTN">VIEW RATES</button>
           <label>
             <input id="voucherInput" name="username" type="text" placeholder="Voucher here..." />
@@ -33,6 +33,17 @@
     <footer>
         Copyright 2023 GUDA
       </footer>
-      
+      <script src="/js/axios.min.js"></script>
+      <script>
+        function callUser(){
+            axios.post("/")
+            .then((res)=>{
+                console.log(res.data)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        }
+      </script>
   </body>
 </html>
