@@ -6,6 +6,7 @@ const ejsMate = require('ejs-mate');
 const partials = require('express-partials');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: true});
+const portalRoutes = require('./routes/portal');
 const { exec } = require('child_process');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -15,8 +16,8 @@ app.set('trust proxy', true)
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('body-parser').urlencoded({ extended: true }))
 
-const portalRoutes = require('./routes/portal');
-app.use('/', portalRoutes);
+
+app.use(portalRoutes);
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
