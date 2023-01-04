@@ -1,3 +1,4 @@
+const { exec } = require('child_process');
 exports.allowClient= (clientIp)=>{
     return new Promise((resolve, reject) => {
         const command = 'sudo ndsctl auth '+clientIp
