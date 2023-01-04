@@ -1,0 +1,54 @@
+.container {
+    width: 70%; /* Set the width of the div element */
+ 
+    
+    margin-top: 3%;
+  }
+  
+  .portal-img{
+    width: 70%;
+    margin: auto;
+  }
+ 
+  @media (max-width: 575.98px) {
+    .container {
+      width: 100%;
+      margin-top: 10%;
+    }
+    .portal-img{
+      width: 100%;
+      height: 30%;
+      
+    }
+  }
+  .insert {
+    
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    animation: glowing 1s ease-in-out infinite;
+  }
+  
+  @keyframes glowing {
+    from {
+      box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.7);
+    }
+    to {
+      box-shadow: 0 0 20px 0 rgba(255, 0, 0, 0);
+    }
+  }
+  
+  .insert:hover {
+    box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.7);
+    animation: none;
+  }
+/* Dark gray */
+body {
+  background-color: #333333;
+  color: white; /* Set text color to white */
+}
+.rtime{
+  margin: 0;
+}
+.status{
+  margin: 0;
+}
