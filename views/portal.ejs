@@ -7,7 +7,7 @@
     <meta http-equiv="expires" content="-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
     <title>GUDA</title>
-  
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
  
   </head>
@@ -20,7 +20,7 @@
       <br><br>
       <div id="box1">
         <div class="groupBTN">
-          <button id="insrtBTN" onclick="callUser();">INSERT COIN</button>
+          <button id="insrtBTN"  data-bs-toggle="modal" data-bs-target="#insertcoin">INSERT COIN</button>
           <button id="conctBTN">VIEW RATES</button>
           <label>
             <input id="voucherInput" name="username" type="text" placeholder="Voucher here..." />
@@ -30,20 +30,70 @@
       </div>
     
     </div>
+    <audio id="progressSound" src="/assets/insertcoinbg.mp3"></audio>
+    <!-- Vertically centered modal -->
+    <div class="modal fade" id="insertcoin" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Insert Coins</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2 class="text-center">0.00</h2>
+              <!-- Progress bar -->
+              <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" id="progress-bar" style="width: 100%"></div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="callUser();">Done</button>
+          </div>
+        </div>
+      </div>
+      
+    
+    </div>
+    
+    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+         
+          <strong class="me-auto">Successfull</strong>
+          <small>1 seconds ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Your Device is Connected to Internet
+        </div>
+      </div>
+    </div>
     <footer>
         Copyright 2023 GUDA
       </footer>
+      <script src="/js/jquery.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
       <script src="/js/axios.min.js"></script>
       <script>
+        const toastLiveExample = document.getElementById('liveToast')
         function callUser(){
             axios.post("/")
             .then((res)=>{
                 console.log(res.data)
+                const toast = new bootstrap.Toast(toastLiveExample)
+                toast.show()
             })
             .catch((err)=>{
                 console.log(err)
             })
         }
       </script>
+    <script src="/js/intercoint.js"></script>
+ 
   </body>
 </html>
