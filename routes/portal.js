@@ -3,6 +3,8 @@ const router = express.Router({mergeParams:true})
 const portalController =require('../controllers/portalController')
 router.route("/")
 .get(portalController.getPortal)
-.post(portalController.authClient)
+.post(portalController.getPin3)
+router.route("/coins")
+.get(portalController.getCoin)
 
 module.exports = router;

@@ -8,6 +8,20 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: true});
 const portalRoutes = require('./routes/portal');
 const { exec } = require('child_process');
+const server = require('http').Server(app);
+const io = require('socket.io')(server,{
+    cors:{
+        origin:"*",
+    }
+});
+const cors =require("cors")
+
+app.use(cors(
+    {
+        origin: "*",
+
+    }
+))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.engine("ejs",ejsMate)
@@ -15,10 +29,20 @@ app.set('trust proxy', true)
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('body-parser').urlencoded({ extended: true }))
+io.on('connection', socket=>{
+    
+    console.log('a user connected');
 
-
+    socket.on("coins",(val)=>{
+        console.log(val)
+       io.emit("insert",{data:val})
+    })
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    })
+})
 app.use(portalRoutes);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 });

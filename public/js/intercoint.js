@@ -17,7 +17,7 @@ $('#insertcoin').on('shown.bs.modal', function () {
 
 const progressBar = document.getElementById('progress-bar');
 const modal = document.getElementById('insertcoin');
-let timer = 20;
+let timer =50
 let interval1 = setInterval(() => {
   timer -= 1;
   progressBar.style.width = `${(timer / 20) * 100}%`;
