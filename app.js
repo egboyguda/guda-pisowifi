@@ -9,6 +9,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: true});
 const portalRoutes = require('./routes/portal');
 const { exec } = require('child_process');
 const server = require('http').Server(app);
+const allowClient= require("./utils/allow-client")
+
 const io = require('socket.io')(server,{
     cors:{
         origin:"*",
@@ -37,7 +39,8 @@ io.on('connection', socket=>{
         console.log(val)
        io.emit("insert",{data:val})
     })
-    socket.on('disconnect', () => {
+    socket.on('disconnect', async() => {
+       //await allowClient.checkAndKill();
         console.log('user disconnected');
     })
 })

@@ -1,4 +1,5 @@
 const { exec } = require('child_process');
+ 
 exports.allowClient= (clientIp)=>{
     return new Promise((resolve, reject) => {
         const command = 'sudo ndsctl auth '+clientIp
@@ -14,3 +15,25 @@ exports.allowClient= (clientIp)=>{
             resolve(stdout)
         })})};
     
+ 
+
+  exports.checkAndKill =()=>{
+    new Promise((resolve, reject) => {
+      exec(`pkill -9 -f "coins.py"`, (err,stdout,stderr) => {
+        if (err) {
+          //reject(err);
+          console.log(err)
+          exec("python3 coins.py",(err,stdout,stderr)=>{
+            if(err){
+              console.log(err)
+            }
+            resolve("err")
+            return
+          })
+          
+        }
+    });
+  
+  })}
+      
+        

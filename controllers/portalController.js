@@ -2,8 +2,9 @@
 const express = require("express")
 const { exec } = require('child_process');
 const allowClient = require("../utils/allow-client")
-
-
+//const py = require("../utils/allow-client")
+const {PythonShell} = require('python-shell')
+const python =new PythonShell("coins.py")
 exports.authClient=async function(req, res)  {
     const clientip = req.ip.slice(7)
     const val=await allowClient.allowClient(clientip)
@@ -19,15 +20,14 @@ exports.getPortal = function(req,res){
 }
 
 
-exports.getPin3 = async function(req,res){
 
-    let gpio5 = new Gpio({pin:3});
-    gpio5.read()
-    .then((state)=>{
-        console.log(state); //state of pin 5
-    });
-}
-exports.getCoin =function(req,res){
-    console.log(req.query)
+
+//run python script to insert coins
+exports.getCoin = async function(req,res){
+    //await py.killPython()
+    await allowClient.checkAndKill()
+    //console.log("call")
+    //await python.kill()
+ 
     res.send("ok")
 }
